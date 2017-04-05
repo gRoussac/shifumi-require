@@ -1,6 +1,7 @@
 const gulp = require('gulp'),
       mocha = require('gulp-mocha');
-      stripCode = require('gulp-strip-code');
+      stripCode = require('gulp-strip-code'),
+      runSequence = require('run-sequence');
       public_flag = ':public';
 
 gulp.task('default', ['test']);
@@ -8,7 +9,7 @@ gulp.task('default', ['test']);
 gulp.task('test', function() {
   return gulp.src(['test/test_*.js'], { read: false })
     .pipe(mocha({
-      reporter: 'landing',
+      reporter: 'progress',
       globals: {
         should: require('chai')
       }
@@ -30,8 +31,11 @@ gulp.task('watch', function() {
   gulp.watch(['scripts/**', 'test/**'], ['mocha']);
 });
 
-gulp.task('build', ['default', 'stripCode', 'test' + public_flag], function() {
+gulp.task('build', ['default'], function(callback) {
 
+  runSequence('test' + public_flag, function() {
+    callback();
+  });
 });
 
 gulp.task('stripCode', function(){
