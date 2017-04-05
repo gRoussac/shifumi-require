@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "test": "mocha --reporter spec test",
+    "test-watch": "mocha --watch --reporter spec test"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/gRoussac/shifumi-require/issues"
   },
-  "homepage": "https://github.com/gRoussac/shifumi-require#readme"
+  "homepage": "https://github.com/gRoussac/shifumi-require#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^4.3.0",
+    "gulp-strip-code": "^0.1.4",
+    "mocha": "^3.2.0",
+    "sinon": "^2.1.0"
+  },
+  "dependencies": {
+    "requirejs": "^2.3.3"
+  }
 }
