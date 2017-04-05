@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "test": "mocha --reporter spec test",
-    "test-watch": "mocha --watch --reporter spec test"
+    "test": "gulp test",
+    "test-watch": "gulp watch",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
