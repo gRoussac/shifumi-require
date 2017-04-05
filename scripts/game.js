@@ -3,7 +3,7 @@
   function Game() {
 
     const game = {
-      _nb_round : 1000,
+      _nb_round: 1000,
       getNbOfRounds() {
         return game._nb_round;
       },

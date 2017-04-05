@@ -24,6 +24,7 @@
     "gulp": "^3.9.1",
     "gulp-mocha": "^4.3.0",
     "gulp-strip-code": "^0.1.4",
+    "gulp-util": "^3.0.8",
     "mocha": "^3.2.0",
     "run-sequence": "^1.2.2",
     "sinon": "^2.1.0"
