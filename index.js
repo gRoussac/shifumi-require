@@ -4,6 +4,6 @@ const requirejs = require('requirejs')
       nodeRequire: require
   });
 
-const Game = requirejs('dist/game');
+const Game = requirejs('game');
 
 module.exports = Game.start();

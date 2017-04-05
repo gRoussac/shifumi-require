@@ -10,14 +10,18 @@
       start() {
         this._fight();
       },
+      stats() {
+
+      },
       _fight() {
       }
     },
-    {getNbOfRounds, start} = game;
+    {getNbOfRounds, start, stats} = game;
 
     const render = {
       getNbOfRounds,
-      start
+      start,
+      stats
     };
 
     /* start-test-code */
