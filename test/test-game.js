@@ -21,7 +21,8 @@ requirejs.config({
     //nodeRequire: require
 });
 
-const Game = requirejs('game');
+const Game = requirejs('game'),
+      Player = requirejs('player');
 
 describe('Game', function() {
   it(['should be an object', public_flag].join(''), function() {
@@ -54,6 +55,21 @@ describe('Game', function() {
   it('should call _fight when calling start', function() {
     const _fight = sinon.spy(Game, '_fight');
     Game.start();
-    sinon.assert.calledOnce(_fight);
+    assert(_fight.calledOnce);
+    Game._fight.restore();
   });
+
+  it('should ask players choice', function() {
+    const play = sinon.spy(Player, 'play');
+    Game._fight();
+    assert(play.calledTwice);
+    assert(play.calledWith());
+    assert(play.withArgs('Paper').calledOnce);
+    /* first call arg should be undefined - withArgs() ?? */
+    expect(play.args.shift().length).to.equal(0);
+    /* second call arg should be defined */
+    expect(play.args.shift().shift()).to.equal('Paper');
+    Player.play.restore();
+  });
+
 });

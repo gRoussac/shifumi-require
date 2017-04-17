@@ -1,6 +1,7 @@
 (function() {
+  "use strict";
 
-  function Game() {
+  function Game(Player) {
 
     const game = {
       _nb_round: 1000,
@@ -14,6 +15,8 @@
 
       },
       _fight() {
+        Player.play();
+        Player.play('Paper');
       }
     },
     {getNbOfRounds, start, stats} = game;
@@ -32,7 +35,10 @@
     return render;
   }
 
-  const game = new Game();
-  define('game', game);
+  define(
+    'game',
+    ['player'],
+    (player) => new Game(player)
+  );
 
 })();
